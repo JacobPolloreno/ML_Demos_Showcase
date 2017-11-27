@@ -1,0 +1,14 @@
+.cardImage {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cardText {
+	width: 100%;
+}
+
+.cardTitle {
+	width: 100%;
+	text-align: center;
+}
