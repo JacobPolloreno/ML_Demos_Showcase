@@ -20,7 +20,7 @@ export default class TVscript extends Component {
 		const URL = 'http://localhost:8000/predict_tvscript';
 
 		let text = this.state.speaker + ' ' + this.state.primer;
-		data.append('text', text);
+		data.append('text', text.toLowerCase());
 
 		fetch(URL, {
 			method: 'POST',
@@ -45,7 +45,7 @@ export default class TVscript extends Component {
 				<Grid.Cell class={'mdl-cell--8-col ' + style.demoContent} shadow="2">
 					<h3>Generate Short TV Script</h3>
 					<TextField
-						placeholder="Input some starter dialogue..."
+						placeholder="Input some starter dialogue (optional)"
 						value={primer}
 						onInput={this.setPrimer}
 						class={style.demoText}
