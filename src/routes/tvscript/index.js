@@ -20,7 +20,7 @@ export default class TVscript extends Component {
 		const URL = 'http://localhost:8000/predict_tvscript';
 
 		let text = this.state.speaker + ' ' + this.state.primer;
-		data.append('text', text.toLowerCase());
+		data.append('text', text.toLowerCase().trim());
 
 		fetch(URL, {
 			method: 'POST',
