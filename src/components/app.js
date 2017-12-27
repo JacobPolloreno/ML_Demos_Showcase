@@ -1,11 +1,12 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-import mdl from 'material-design-lite/material';
-import { Layout, Grid } from 'preact-mdl';
+// import mdl from 'material-design-lite/material';
+// import { Layout, Grid } from 'preact-mdl';
+import LayoutGrid from 'preact-material-components/LayoutGrid';
 
 import Home from '../routes/home';
-import Cifar from '../routes/cifar';
-import TVscript from '../routes/tvscript';
+// import Cifar from '../routes/cifar';
+// import TVscript from '../routes/tvscript';
 import Sidebar from '../components/sidebar';
 // import Home from 'async!./home';
 
@@ -13,6 +14,8 @@ import Sidebar from '../components/sidebar';
 // const CLIENTID = '97118263867-2t4nvsrgf6s01qpha1vutjo6mnc7p29c.apps.googleusercontent.com';
 // const SCOPE = 'https://www.googleapis.com/auth/cloud-platform';
 
+							// <Cifar path="/cifar" />
+							// <TVscript path="/tvscript" />
 
 export default class App extends Component {
 	handleRoute = e => {
@@ -46,16 +49,14 @@ export default class App extends Component {
 	render() {
 		return (
 			<div id="app">
-				<Layout fixed-drawer>
+				<LayoutGrid>
 					<Sidebar />
-					<Layout.Content>
+					<LayoutGrid.Inner>
 						<Router onChange={this.handleRoute}>
 							<Home path="/" />
-							<Cifar path="/cifar" />
-							<TVscript path="/tvscript" />
 						</Router>
-					</Layout.Content>
-				</Layout>
+					</LayoutGrid.Inner>
+				</LayoutGrid>
 			</div>
 		);
 	}
