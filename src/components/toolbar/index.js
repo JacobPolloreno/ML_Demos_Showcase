@@ -1,11 +1,11 @@
 import { h, Component } from 'preact';
-import { Link } from 'preact-router/match';
 import Drawer from 'preact-material-components/Drawer';
 import List from 'preact-material-components/List';
-import Button from 'preact-material-components/Button';
+import Toolbar from 'preact-material-components/Toolbar';
 import 'preact-material-components/Drawer/style.css';
 import 'preact-material-components/List/style.css';
-import 'preact-material-components/Button/style.css';
+import 'preact-material-components/Toolbar/style.css';
+
 
 export default class Sidebar extends Component {
 	handleClick = e => {
@@ -29,25 +29,23 @@ export default class Sidebar extends Component {
 
 	render() {
 		return (
-			<div>
-				<Button onClick={this.handleClick}>Open Drawer</Button>
+			<Toolbar className="toolbar">
+				<Toolbar.Row>
+					<Toolbar.Section align-start>
+						<Toolbar.Icon onClick={this.handleClick} menu>menu</Toolbar.Icon>
+						<Toolbar.Title>Machine Learning Demos by Jacob Polloreno</Toolbar.Title>
+					</Toolbar.Section>
+				</Toolbar.Row>
 				<Drawer.TemporaryDrawer open={this.state.drawerOpened} onClose={this.onClose}>
-					<Drawer.TemporaryDrawerHeader>Demos</Drawer.TemporaryDrawerHeader>
 					<Drawer.TemporaryDrawerContent>
 						<List>
-							<List.LinkItem>
-								<Link activeClassName="is-active" href="/">Home</Link>
-							</List.LinkItem>
-							<List.LinkItem>
-								<Link activeClassName="is-active" href="/cifar">Cifar</Link>
-							</List.LinkItem>
-							<List.LinkItem>
-								<Link activeClassName="is-active" href="/tvscript">TV Script</Link>
-							</List.LinkItem>
+							<List.LinkItem href="/">Home</List.LinkItem>
+							<List.LinkItem href="/cifar">Cifar</List.LinkItem>
+							<List.LinkItem href="/tvscript">TV Script</List.LinkItem>
 						</List>
 					</Drawer.TemporaryDrawerContent>
 				</Drawer.TemporaryDrawer>
-			</div>
+			</Toolbar>
 		);
 	}
 }

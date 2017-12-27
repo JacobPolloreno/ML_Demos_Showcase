@@ -18,3 +18,20 @@ html, body {
 #app {
 	height: 100%;
 }
+
+.main-div {
+	height: 100%;
+}
+
+.fab--absolute {
+  position: fixed !important;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media(min-width: 1024px) {
+   .app-fab--absolute {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
