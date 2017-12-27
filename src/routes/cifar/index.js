@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { Grid, Card } from 'preact-mdl';
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'precharts';
 import style from './style';
 
 export default class Cifar extends Component {
@@ -7,10 +8,12 @@ export default class Cifar extends Component {
 
 	handleSubmit = (event) => {
 		let data = new FormData();
+		let previewImg = new FileReader();
 		const URL = 'http://localhost:8000/predict_cifar';
 
 		Array.from(event.target.files).forEach((file) => {
 			data.append('image', file);
+			previewImg.readAsDataURL(file);
 		});
 
 		fetch(URL, {
@@ -19,8 +22,10 @@ export default class Cifar extends Component {
 		}).then(
 			response => response.json()
 		).then(success => {
+			let result = success[0];
+			result.src = previewImg.result;
 			this.setState({
-				pictures: this.state.pictures.concat(success[0])
+				pictures: this.state.pictures.concat(result)
 			});
 		}).catch(
 			error => console.log(error)
@@ -42,7 +47,7 @@ export default class Cifar extends Component {
 							airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck.</p>
 						</Card.Text>
 						<Card.Actions>
-							<input type="file" onChange={this.handleSubmit} multiple enctype="multipart/form-data"  />
+							<input type="file" onChange={this.handleSubmit} enctype="multipart/form-data"  />
 						</Card.Actions>
 					</Card>
 				</Grid.Cell>
@@ -51,11 +56,17 @@ export default class Cifar extends Component {
 					<Grid.Cell>
 						<Card shadow="3" class="wide">
 							<Card.Text class={style.cardText}>
-								<img src={'data:image/png;base64, ' + picture.src} class={style.cardImage} />
-								<p>{picture.prediction}</p>
-								<hr />
-								<ul>{picture.prediction_result.map( res => ( <li>{res.label}   {res.prob}</li>))}
-								</ul>
+								<img src={picture.src} class={style.cardImage} />
+								<ResponsiveContainer minWidth={250} minHeight={300}>
+									<BarChart layout="vertical" data={picture.prediction_result}>
+										<XAxis dataKey="prob" type="number" tickLine={false} />
+										<YAxis type="category" dataKey="label"
+											axisLine={false} tickLine={false} interval={0}
+										/>
+										<Bar dataKey="prob" fill="#16ce97" />
+										<Tooltip />
+									</BarChart>
+								</ResponsiveContainer>
 							</Card.Text>
 						</Card>
 					</Grid.Cell>
@@ -64,4 +75,5 @@ export default class Cifar extends Component {
 			</Grid>
 		);
 	}
+
 }
