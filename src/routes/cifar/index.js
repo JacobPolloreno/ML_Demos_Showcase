@@ -15,8 +15,7 @@ export default class Cifar extends Component {
 	handleSubmit = (event) => {
 		let data = new FormData();
 		let previewImg = new FileReader();
-		const URL = 'http://192.168.1.177:8000/predict_cifar';
-		// const URL = 'http://localhost:8000/predict_cifar';
+		const URL = 'http://localhost:8000/predict_cifar';
 
 		Array.from(event.target.files).forEach((file) => {
 			data.append('image', file);
@@ -46,36 +45,39 @@ export default class Cifar extends Component {
 			<div>
 				<LayoutGrid>
 					<LayoutGrid.Inner>
-						<LayoutGrid.Cell desktopCols="3" phoneCols="0" tabletCols="0" />
-						<LayoutGrid.Cell desktopCols="6" phoneCols="4" tabletCols="8">
+						<LayoutGrid.Cell desktopCols="4" phoneCols="0" tabletCols="0" />
+						<LayoutGrid.Cell desktopCols="4" phoneCols="4" tabletCols="8">
 							<Card>
 								<Card.Primary>
-									<Card.Title>Cifar</Card.Title>
+									<Card.Title className={style.cardTitle}>Cifar10</Card.Title>
 								</Card.Primary>
 								<Card.SupportingText>
-									Try to classify some images from the following lables:<br />
-									airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck.
+									<p>
+										Try to classify some images from the following lables:<br />
+										airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck.
+									</p>
 								</Card.SupportingText>
 								<Card.Actions>
 									<input type="file" onChange={this.handleSubmit} enctype="multipart/form-data" />
 								</Card.Actions>
 							</Card>
 						</LayoutGrid.Cell>
-							
+						<LayoutGrid.Cell desktopCols="4" phoneCols="0" tabletCols="0" />
+
 						{ pictures.map( picture => (
-							<LayoutGrid.Cell desktopCols="4" phoneCols="4" tabletCols="8">
+							<LayoutGrid.Cell desktopCols="3" phoneCols="4" tabletCols="8">
 								<Card>
 									<Card.Primary>
-										<img src={picture.src} class={style.cardImage} />
+										<img src={picture.src} className={style.cardImage} />
 									</Card.Primary>
 									<Card.SupportingText>
-										<ResponsiveContainer minWidth={250} minHeight={300}>
+										<ResponsiveContainer minWidth={180} minHeight={200}>
 											<BarChart layout="vertical" data={picture.prediction_result}>
 												<XAxis dataKey="prob" type="number" tickLine={false} />
 												<YAxis type="category" dataKey="label"
 													axisLine={false} tickLine={false} interval={0}
 												/>
-												<Bar dataKey="prob" fill="#16ce97" />
+												<Bar dataKey="prob" fill="#23a07b" />
 												<Tooltip />
 											</BarChart>
 										</ResponsiveContainer>
@@ -86,9 +88,9 @@ export default class Cifar extends Component {
 
 					</LayoutGrid.Inner>
 				</LayoutGrid>
-				<Fab ripple className="fab--absolute" onClick={() => {this.fileInput.click();}}>
+				<Fab ripple className="fab--absolute mdc--primary-override" onClick={() => {this.fileInput.click();}}>
 					<Icon>file_upload</Icon>
-					<input ref={fileInput => {this.fileInput=fileInput;}} class={style.fileInput} type="file" onChange={this.handleSubmit} />
+					<input ref={fileInput => {this.fileInput=fileInput;}} className={style.fileInput} type="file" onChange={this.handleSubmit} />
 				</Fab>
 			</div>
 		);

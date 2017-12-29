@@ -1,16 +1,3 @@
-.demoContainer {
-  max-width: 1600px;
-  width: calc(100% - 16px);
-  margin: 0 auto;
-}
-
-.demoContent {
-  border-radius: 2px;
-  padding: 80px 56px;
-  margin-bottom: 80px;
-}
-
-.demoContent h1 {
-  margin-top: 48px;
-  text-align: center;
+.demoTitle {
+	text-align: center;
 }
