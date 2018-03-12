@@ -1,5 +1,5 @@
 # Machine Learning Demos
-LIVE: demo.jacobpolloreno.com
+LIVE: [demo.jacobpolloreno.com](https://demo.jacobpolloreno.com)
 
 ##### Current Deployed Models
 * Cifar 10
