@@ -2,7 +2,7 @@
 LIVE: [demo.jacobpolloreno.com](https://demo.jacobpolloreno.com)
 
 ##### Current Deployed Models
-* Cifar 10
+* [Cifar 10](https://demo.jacobpolloreno.com/cifar)
 
 ## Description
 This is the **front-end** code for my personal machine learning models.
