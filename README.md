@@ -14,4 +14,4 @@ It uses [Preact](https://github.com/developit/preact)  for the front-end and jav
 
 ## Examples
 
-![single] (./imgs/single_pred.png "Single Cifar Prediction")
+![single](./imgs/single_pred.png "Single Cifar Prediction")
