@@ -61,17 +61,6 @@ export default class Sidebar extends Component {
 									</List.SecondaryText>
 								</List.TextContainer>
 							</List.LinkItem>
-							<List.LinkItem href="/tvscript">
-								<List.ItemIcon>short_text</List.ItemIcon>
-								<List.TextContainer>
-									<List.PrimaryText>
-										Generate Text
-									</List.PrimaryText>
-									<List.SecondaryText>
-										(TV Script)
-									</List.SecondaryText>
-								</List.TextContainer>
-							</List.LinkItem>
 						</List>
 					</Drawer.TemporaryDrawerContent>
 				</Drawer.TemporaryDrawer>
