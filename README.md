@@ -14,6 +14,4 @@ It uses [Preact](https://github.com/developit/preact)  for the front-end and jav
 
 ## Examples
 
-![full] (./imgs/full.png)
-
-![single] (./imgs/single_pred.png)
+![single] (https://github.com/JacobPolloreno/ML_Demos_Showcase/raw/master/imgs/single_pred.png)
