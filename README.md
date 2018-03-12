@@ -11,3 +11,9 @@ It uses [Preact](https://github.com/developit/preact)  for the front-end and jav
 
 * Code for the local rest api can be found [here](https://github.com/JacobPolloreno/Tensorflow_Serving_Hug_Api). It uses a python web server and Google's api client.
 * Code for the custom model(s) can be found [here](https://github.com/JacobPolloreno/Tensorflow_Serving_Models). They are built with [Tensorflow](https://github.com/tensorflow/tensorflow) and saved to be used on a [Tensorflow Serving](https://github.com/tensorflow/serving) host(i.e. Google Cloud ML Engine)
+
+## Examples
+
+![full] (./imgs/full.png)
+
+![single] (./imgs/single_pred.png)
