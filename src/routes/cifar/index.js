@@ -15,7 +15,7 @@ export default class Cifar extends Component {
 	handleSubmit = (event) => {
 		let data = new FormData();
 		let previewImg = new FileReader();
-		const URL = 'http://localhost:8000/predict_cifar';
+		const URL = 'https://api.jacobpolloreno.com/predict_cifar';
 
 		Array.from(event.target.files).forEach((file) => {
 			data.append('image', file);
@@ -53,6 +53,12 @@ export default class Cifar extends Component {
 								</Card.Primary>
 								<Card.SupportingText>
 									<p>
+										NOTE: Initial request may take long!<br />
+
+										This is a demonstration of basic image classification on the cifar10<br />
+										dataset. This project was created to learn to serve Tensorflow models<br />
+										on Tensorflow Serving.<br/ ><br />
+
 										Try to classify some images from the following lables:<br />
 										airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck.
 									</p>
