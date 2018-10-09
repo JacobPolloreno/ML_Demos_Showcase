@@ -41,10 +41,7 @@ export default class Sidebar extends Component {
 					</Toolbar.Section>
 				</Toolbar.Row>
 				<Drawer.TemporaryDrawer open={this.state.drawerOpened} onClose={this.onClose}>
-					<Drawer.TemporaryDrawerHeader className="mdc--primary-override">
-						Select A Demo
-					</Drawer.TemporaryDrawerHeader>
-					<Drawer.TemporaryDrawerContent>
+					<Drawer.DrawerContent>
 						<List>
 							<List.LinkItem href="/">
 								<List.ItemIcon>home</List.ItemIcon>
@@ -61,8 +58,12 @@ export default class Sidebar extends Component {
 									</List.SecondaryText>
 								</List.TextContainer>
 							</List.LinkItem>
+							<List.LinkItem href="/workbuddy">
+								<List.ItemIcon>question_answer</List.ItemIcon>
+								WorkBuddy
+							</List.LinkItem>
 						</List>
-					</Drawer.TemporaryDrawerContent>
+					</Drawer.DrawerContent>
 				</Drawer.TemporaryDrawer>
 			</Toolbar>
 		);

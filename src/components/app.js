@@ -3,10 +3,8 @@ import { Router } from 'preact-router';
 
 import Home from '../routes/home';
 import Cifar from '../routes/cifar';
-// import TVscript from '../routes/tvscript';
+import WorkBuddy from '../routes/workbuddy';
 import Sidebar from '../components/toolbar';
-
-							// <TVscript path="/tvscript" />
 
 export default class App extends Component {
 	handleRoute = e => {
@@ -20,6 +18,7 @@ export default class App extends Component {
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
 					<Cifar path="/cifar" />
+					<WorkBuddy path="/workbuddy" />
 				</Router>
 			</div>
 		);
