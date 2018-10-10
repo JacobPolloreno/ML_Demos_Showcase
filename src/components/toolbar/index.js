@@ -62,6 +62,10 @@ export default class Sidebar extends Component {
 								<List.ItemIcon>question_answer</List.ItemIcon>
 								WorkBuddy
 							</List.LinkItem>
+							<List.LinkItem href="/unibuddy">
+								<List.ItemIcon>question_answer</List.ItemIcon>
+								WorkBuddy UE
+							</List.LinkItem>
 						</List>
 					</Drawer.DrawerContent>
 				</Drawer.TemporaryDrawer>
